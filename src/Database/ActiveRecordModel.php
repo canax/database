@@ -144,7 +144,7 @@ class ActiveRecordModel
         $this->checkDb();
         return $this->db->connect()
                         ->execute($sql, $params)
-                        ->fetchAllClass(get_class($this))
+                        ->fetchAllClass(get_class($this));
     }
 
 
