@@ -185,6 +185,23 @@ class ActiveRecordModel
 
 
     /**
+     * Execute rawsql
+     * @param string $sql rawsql
+     * @param array $params params
+     *
+     * @return array
+     */
+    public function findAllSql($sql, $params)
+    {
+        $this->checkDb();
+        return $this->db->connect()
+                        ->execute($sql, $params)
+                        ->fetchAllClass(get_class($this));
+    }
+
+
+
+    /**
      * Save current object/row, insert if id is missing and do an
      * update if the id exists.
      *
