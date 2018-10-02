@@ -434,16 +434,4 @@ class Database
     {
         return $this->stmt->rowCount();
     }
-
-
-
-    /**
-     * Fetch one resultset. OBSOLETE replace by fetch()
-     *
-     * @return mixed with resultset.
-     */
-    public function fetchOne()
-    {
-        return $this->stmt->fetch();
-    }
 }
