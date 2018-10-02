@@ -2,7 +2,7 @@
 
 namespace Anax\Database;
 
-use \Anax\Database\Exception\Exception;
+use Anax\Database\Exception\Exception;
 
 /**
  * Database wrapper, provides a database API on top of PHP PDO for
@@ -43,15 +43,15 @@ class Database
     public function setOptions($options = [])
     {
         $default = [
-            'dsn'             => null,
-            'username'        => null,
-            'password'        => null,
-            'driver_options'  => null,
-            'table_prefix'    => null,
-            'fetch_mode'      => \PDO::FETCH_OBJ,
-            'session_key'     => 'Anax\Database',
-            'verbose'         => null,
-            'debug_connect'   => false,
+            "dsn"             => null,
+            "username"        => null,
+            "password"        => null,
+            "driver_options"  => null,
+            "table_prefix"    => null,
+            "fetch_mode"      => \PDO::FETCH_OBJ,
+            "session_key"     => "Anax\Database",
+            "verbose"         => null,
+            "debug_connect"   => false,
         ];
         $this->options = array_merge($default, $options);
     }

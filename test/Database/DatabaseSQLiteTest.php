@@ -2,10 +2,12 @@
 
 namespace Anax\Database;
 
+use PHPUnit\Framework\TestCase;
+
 /**
-* A testclass
+* Test the database class using sqlite.
 */
-class DatabaseSQLiteTest extends \PHPUnit_Framework_TestCase
+class DatabaseSQLiteTest extends TestCase
 {
     private $sqliteOptions = [
         "dsn" => "sqlite:memory::",

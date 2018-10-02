@@ -1,8 +1,18 @@
 <?php
 
+use Anax\Database;
+
 /**
- * Sample configuration file for Anax webroot.
+ * Configuration for tests.
  */
+
+
+/**
+ * Set the error reporting.
+ */
+error_reporting(-1);              // Report all type of errors
+ini_set('display_errors', 1);     // Display all errors
+
 
 
 /**
@@ -23,5 +33,6 @@ require ANAX_INSTALL_PATH . "/vendor/autoload.php";
 /**
  * Include others.
  */
-require __DIR__ . "/Book.php";
-require __DIR__ . "/User.php";
+foreach (glob(__DIR__ . "/Mock/*.php") as $file) {
+    require $file;
+}

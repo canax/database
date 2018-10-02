@@ -2,11 +2,13 @@ Revision history
 =================================
 
 
-v2.0.0 (2018-10-01)
+v2.0.0 (2018-10-02)
 ---------------------------------
 
 * PHP 7.2.
 * Split query builder and active record to own modules.
+* Removed DatabaseConfigurable.
+* Updated how the di service is created.
 
 
 
