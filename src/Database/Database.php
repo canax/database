@@ -50,7 +50,7 @@ class Database
             "table_prefix"    => null,
             "fetch_mode"      => \PDO::FETCH_OBJ,
             "session_key"     => "Anax\Database",
-            "verbose"         => null,
+            "verbose"         => false,
             "debug_connect"   => false,
         ];
 
@@ -348,18 +348,18 @@ class Database
     /**
      * Throw exception with detailed message.
      *
-     * @param string $msg   detailed error message from PDO
-     * @param string $query query to execute
-     * @param array  $param to match ? in statement
+     * @param string $msg    detailed error message from PDO
+     * @param string $query  query to execute
+     * @param array  $params to match ? in statement
      *
-     * @throws \Anax\Database\Exception
+     * @throws Anax\Database\Exception
      *
      * @return void
      */
     protected function createException(
         string $msg,
         string $query,
-        array $param
+        array $params
     ) : void
     {
         throw new Exception(
@@ -367,13 +367,10 @@ class Database
             . "<br><br>SQL ("
             . substr_count($query, "?")
             . " params):<br><pre>$query</pre><br>PARAMS ("
-            . count($param)
+            . count($params)
             . "):<br><pre>"
-            . implode($param, "\n")
+            . implode($params, "\n")
             . "</pre>"
-            . ((count(array_filter(array_keys($param), "is_string")) > 0)
-                ? "WARNING your params array has keys, should only have values."
-                : null)
         );
     }
 
@@ -382,16 +379,14 @@ class Database
     /**
      * Throw exception when pdo failed using detailed message.
      *
-     * @param string       $query   query to execute
-     * @param array        $param   to match ? in statement
-     *
-     * @throws \Anax\Database\Exception
+     * @param string $query  query to execute
+     * @param array  $params to match ? in statement
      *
      * @return void
      */
-    protected function pdoException($query, $param)
+    protected function pdoException(string $query, array $params) : void
     {
-        $this->createException($this->pdo->errorInfo()[2], $query, $param);
+        $this->createException($this->pdo->errorInfo()[2], $query, $params);
     }
 
 
@@ -399,16 +394,14 @@ class Database
     /**
      * Throw exception when statement failed using detailed message.
      *
-     * @param string       $query   query to execute
-     * @param array        $param   to match ? in statement
-     *
-     * @throws \Anax\Database\Exception
+     * @param string $query  query to execute
+     * @param array  $params to match ? in statement
      *
      * @return void
      */
-    protected function statementException($query, $param)
+    protected function statementException(string $query, array $params) : void
     {
-        $this->createException($this->stmt->errorInfo()[2], $query, $param);
+        $this->createException($this->stmt->errorInfo()[2], $query, $params);
     }
 
 
@@ -418,7 +411,7 @@ class Database
      *
      * @return integer as last insert id.
      */
-    public function lastInsertId()
+    public function lastInsertId() : int
     {
         return $this->pdo->lastInsertId();
     }
@@ -430,7 +423,7 @@ class Database
     *
     * @return integer as rows affected on last statement
     */
-    public function rowCount()
+    public function rowCount() : int
     {
         return $this->stmt->rowCount();
     }

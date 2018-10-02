@@ -2,13 +2,14 @@ Revision history
 =================================
 
 
-v2.0.1 (2018-10-02)
+v2.0.* (2018-10-02)
 ---------------------------------
 
 * Remove Database::fetchObject() marked as obsolete, replaced by fetchClass().
 * Remove Database::fetchOne() marked as obsolete, replaced by fetch().
 * Added typehints to Database.
 * Added typehints to DatabaseDebug.
+* Enhance unit testing.
 
 
 
