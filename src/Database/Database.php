@@ -438,21 +438,6 @@ class Database
 
 
     /**
-     * Fetch one resultset as an object from this class.
-     * OBSOLETE replaced by fetchClass
-     *
-     * @param string $classname which type of object to instantiate.
-     *
-     * @return object with resultset.
-     */
-    public function fetchObject($classname)
-    {
-        return $this->stmt->fetchObject($classname);
-    }
-
-
-
-    /**
      * Fetch one resultset. OBSOLETE replace by fetch()
      *
      * @return mixed with resultset.
