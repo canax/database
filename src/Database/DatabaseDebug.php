@@ -24,7 +24,7 @@ class DatabaseDebug extends Database
      *
      * @return self
      */
-    public function connect()
+    public function connect() : object
     {
         if ($this->options['verbose']) {
             echo "<p>Connecting to dsn:<br><code>" . $this->options['dsn'] . "</code>";
@@ -41,27 +41,31 @@ class DatabaseDebug extends Database
      *
      * @return int number of database queries made.
      */
-    public function loadHistory()
+    public function loadHistory() : int
     {
         $key = $this->options['session_key'];
+
         if (isset($_SESSION['CDatabase'])) {
             self::$numQueries = $_SESSION[$key]['numQueries'];
             self::$queries    = $_SESSION[$key]['queries'];
             self::$params     = $_SESSION[$key]['params'];
             unset($_SESSION[$key]);
         }
+
+        return self::$numQueries;
     }
 
 
 
     /**
-     * Save query-history in session, useful as a flashmemory when redirecting to another page.
+     * Save query-history in session, useful as a flashmemory when redirecting
+     * to another page.
      *
      * @param string $extra enables to save some extra debug information.
      *
      * @return void
      */
-    public function saveHistory($extra = null)
+    public function saveHistory(string $extra = null) : void
     {
         if (!is_null($extra)) {
             self::$queries[] = $extra;
@@ -84,7 +88,7 @@ class DatabaseDebug extends Database
      *
      * @return int number of database queries made.
      */
-    public function getNumQueries()
+    public function getNumQueries() : int
     {
         return self::$numQueries;
     }
@@ -96,7 +100,7 @@ class DatabaseDebug extends Database
      *
      * @return array with queries.
      */
-    public function getQueries()
+    public function getQueries() : array
     {
         return [self::$queries, self::$params];
     }
@@ -109,7 +113,7 @@ class DatabaseDebug extends Database
      *
      * @return string with HTML.
      */
-    public function dump()
+    public function dump() : string
     {
         $html  = '<p><i>You have made ' . self::$numQueries . ' database queries.</i></p><pre>';
         
@@ -131,11 +135,11 @@ class DatabaseDebug extends Database
      * @param string $query  the SQL statement
      * @param array  $params the params array
      *
-     * @throws Exception when failing to prepare question.
+     * @throws Anax\Database\Exception when failing to prepare question.
      *
-     * @return boolean returns TRUE on success or FALSE on failure.
+     * @return self
      */
-    public function execute($query, $params = [])
+    public function execute($query, $params = []) : object
     {
         self::$queries[] = $query;
         self::$params[]  = $params;

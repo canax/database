@@ -10,10 +10,11 @@ use PHPUnit\Framework\TestCase;
 class DatabaseGeneralTest extends TestCase
 {
     /**
-     * Testcase
+     * Test create the database object.
      */
     public function testCreateDatabaseObject()
     {
-        $this->assertTrue(true);
+        $db = new Database();
+        $this->assertInstanceOf(Database::class, $db);
     }
 }
