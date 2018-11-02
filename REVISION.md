@@ -2,6 +2,13 @@ Revision history
 =================================
 
 
+v2.0.1 (2018-11-02)
+---------------------------------
+
+* Make it possible to configure PDO::ATTR_EMULATE_PREPARES through the configuration file setting 'emulate_prepares'.
+
+
+
 v2.0.0 (2018-10-02)
 ---------------------------------
 

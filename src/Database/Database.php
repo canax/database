@@ -49,6 +49,7 @@ class Database
             "driver_options"  => null,
             "table_prefix"    => null,
             "fetch_mode"      => \PDO::FETCH_OBJ,
+            "emulate_prepares" => false,
             "session_key"     => "Anax\Database",
             "verbose"         => null,
             "debug_connect"   => false,
@@ -101,7 +102,7 @@ class Database
             );
 
             $this->pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
-            $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+            $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, $this->options['emulate_prepares']);
         } catch (\PDOException $e) {
             if ($this->options['debug_connect']) {
                 throw $e;
