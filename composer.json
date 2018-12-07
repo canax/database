@@ -2,7 +2,7 @@
     "name": "anax/database",
     "type": "library",
     "description": "Anax Database module, to work with databases.",
-    "keywords": ["boilerplate", "framework", "mvc", "education"],
+    "keywords": ["database", "DBA", "Database Access Layer"],
     "homepage": "https://dbwebb.se/anax",
     "license": "MIT",
     "authors": [
