@@ -3,10 +3,11 @@ Revision history
 
 
 
-v2.1.* (2018-12-07)
+v2.1.1 (2018-12-07)
 ---------------------------------
 
 * Remove Sensiolabs validation from README.
+* Set PHP-restrictions in composer to >=7.2, not ^7.2.
 
 
 
