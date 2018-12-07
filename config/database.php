@@ -13,13 +13,14 @@
  *
  */
 return [
-    "dsn"             => null,
-    "username"        => null,
-    "password"        => null,
-    "driver_options"  => null,
-    "fetch_mode"      => \PDO::FETCH_OBJ,
-    "table_prefix"    => null,
-    "session_key"     => "Anax\Database",
+    "dsn"              => null,
+    "username"         => null,
+    "password"         => null,
+    "driver_options"   => null,
+    "fetch_mode"       => \PDO::FETCH_OBJ,
+    "table_prefix"     => null,
+    "session_key"      => "Anax\Database",
+    "emulate_prepares" => false,
 
     // True to be very verbose during development
     "verbose"         => null,

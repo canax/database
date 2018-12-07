@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.1.3 (2018-12-07)
+---------------------------------
+
+* Adding setting "emulate_prepares" => false, to the default config file.
+
+
+
 v2.1.2 (2018-12-07)
 ---------------------------------
 
