@@ -114,6 +114,7 @@ return [
     "fetch_mode"      => \PDO::FETCH_OBJ,
     "table_prefix"    => null,
     "session_key"     => "Anax\Database",
+    "emulate_prepares" => false,
 
     // True to be very verbose during development
     "verbose"         => null,
