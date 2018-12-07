@@ -1,8 +1,8 @@
 Anax Database
 ==================================
 
+[![Join the chat at https://gitter.im/canax/di](https://badges.gitter.im/canax/database.svg)](https://gitter.im/canax/database?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Latest Stable Version](https://poser.pugx.org/anax/database/v/stable)](https://packagist.org/packages/anax/database)
-[![Join the chat at https://gitter.im/mosbth/anax](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/canax?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Build Status](https://travis-ci.org/canax/database.svg?branch=master)](https://travis-ci.org/canax/database)
 [![CircleCI](https://circleci.com/gh/canax/database.svg?style=svg)](https://circleci.com/gh/canax/database)
