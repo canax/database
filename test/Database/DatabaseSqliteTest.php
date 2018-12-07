@@ -102,9 +102,9 @@ class DatabaseSqliteTest extends TestCase
 //         $db = $this->db->connect();
 //         $this->assertInstanceOf("\Anax\Database\Database", $db);
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      */
@@ -113,9 +113,9 @@ class DatabaseSqliteTest extends TestCase
 //         $db = new Database();
 //         $this->assertInstanceOf("\Anax\Database\Database", $db);
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      *
@@ -126,9 +126,9 @@ class DatabaseSqliteTest extends TestCase
 //         $db = new Database([]);
 //         $db->connect();
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      *
@@ -142,9 +142,9 @@ class DatabaseSqliteTest extends TestCase
 //         ]);
 //         $db->connect();
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      */
@@ -159,9 +159,9 @@ class DatabaseSqliteTest extends TestCase
 // EOD;
 //         $this->db->execute($sql);
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      */
@@ -177,9 +177,9 @@ class DatabaseSqliteTest extends TestCase
 //         $this->db->execute($sql, $this->rows[1]);
 //         $this->db->execute($sql, $this->rows[2]);
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      */
@@ -196,9 +196,9 @@ class DatabaseSqliteTest extends TestCase
 //         //$id2 = $this->db->lastInsertId();
 //         //$this->db->execute(array_merge($this->rows[1], [$id2]));
 //     }
-// 
-// 
-// 
+//
+//
+//
 //     /**
 //      * Testcase
 //      */

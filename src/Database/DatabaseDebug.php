@@ -40,6 +40,8 @@ class DatabaseDebug extends Database
      * Load query-history from session if available.
      *
      * @return int number of database queries made.
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function loadHistory() : int
     {
@@ -64,6 +66,8 @@ class DatabaseDebug extends Database
      * @param string $extra enables to save some extra debug information.
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function saveHistory(string $extra = null) : void
     {

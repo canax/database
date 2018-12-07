@@ -2,7 +2,8 @@ Revision history
 =================================
 
 
-v2.0.* (2018-10-02)
+
+v2.1.0 (2018-12-07)
 ---------------------------------
 
 * Remove Database::fetchObject() marked as obsolete, replaced by fetchClass().
@@ -10,6 +11,13 @@ v2.0.* (2018-10-02)
 * Added typehints to Database.
 * Added typehints to DatabaseDebug.
 * Enhance unit testing.
+
+
+
+v2.0.1 (2018-11-02)
+---------------------------------
+
+* Make it possible to configure PDO::ATTR_EMULATE_PREPARES through the configuration file setting 'emulate_prepares'.
 
 
 

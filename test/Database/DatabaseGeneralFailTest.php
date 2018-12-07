@@ -28,10 +28,10 @@ class DatabaseGeneralFailTest extends TestCase
      *
      * @expectedException Anax\Database\Exception\Exception
      */
-     public function testConnectWithMalformedDsn()
+    public function testConnectWithMalformedDsn()
     {
         $db = new Database([
-            "dsn" => "NO DNS"
+           "dsn" => "NO DNS"
         ]);
         $db->connect();
     }
@@ -43,11 +43,11 @@ class DatabaseGeneralFailTest extends TestCase
      *
      * @expectedException \PDOException
      */
-     public function testConnectWithMalformedDsnAndDebugConnect()
+    public function testConnectWithMalformedDsnAndDebugConnect()
     {
         $db = new Database([
-            "dsn" => "NO DNS",
-            "debug_connect" => true,
+           "dsn" => "NO DNS",
+           "debug_connect" => true,
         ]);
         $db->connect();
     }
@@ -59,7 +59,7 @@ class DatabaseGeneralFailTest extends TestCase
      *
      * @expectedException Anax\Database\Exception\Exception
      */
-     public function testExecuteBeforeConnect()
+    public function testExecuteBeforeConnect()
     {
         $db = new Database();
         $db->execute("SELECT 1;");

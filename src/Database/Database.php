@@ -49,6 +49,7 @@ class Database
             "driver_options"  => null,
             "table_prefix"    => null,
             "fetch_mode"      => \PDO::FETCH_OBJ,
+            "emulate_prepares" => false,
             "session_key"     => "Anax\Database",
             "verbose"         => false,
             "debug_connect"   => false,
@@ -100,9 +101,8 @@ class Database
                 $this->options["password"],
                 $this->options["driver_options"]
             );
-
-            $this->pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options["fetch_mode"]);
-            $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+            $this->pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
+            $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, $this->options['emulate_prepares']);
         } catch (\PDOException $e) {
             if ($this->options["debug_connect"]) {
                 throw $e;
@@ -201,8 +201,7 @@ class Database
         string $query,
         array $params,
         string $class
-    ) : object
-    {
+    ) : object {
         $this->execute($query, $params);
         $this->stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
         return $this->stmt->fetch();
@@ -224,8 +223,7 @@ class Database
         string $query,
         array $params,
         string $object = null
-    ) : object
-    {
+    ) : object {
         if (is_null($object)) {
             $object = $params;
             $params = [];
@@ -360,8 +358,7 @@ class Database
         string $msg,
         string $query,
         array $params
-    ) : void
-    {
+    ) : void {
         throw new Exception(
             $msg
             . "<br><br>SQL ("
