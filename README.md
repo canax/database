@@ -13,7 +13,6 @@ Anax Database
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ab0c4d472565d95e64ff/maintainability)](https://codeclimate.com/github/canax/database/maintainability)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6dff6044d25646e9bcaea3a333108ded)](https://www.codacy.com/app/mosbth/database?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=canax/database&amp;utm_campaign=Badge_Grade)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d831fd4c-b7c6-4ff0-9a83-102440af8929/mini.png)](https://insight.sensiolabs.com/projects/d831fd4c-b7c6-4ff0-9a83-102440af8929)
 
 Anax Database module for wrapping PHP PDO with an additional layer of utilities, providing support for a SQL query builder and an Active Record implementation.
 

@@ -3,6 +3,13 @@ Revision history
 
 
 
+v2.1.* (2018-12-07)
+---------------------------------
+
+* Remove Sensiolabs validation from README.
+
+
+
 v2.1.0 (2018-12-07)
 ---------------------------------
 
