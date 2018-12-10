@@ -3,6 +3,15 @@ Revision history
 
 
 
+v2.2.0 (2018-12-10)
+---------------------------------
+
+* Adding typehint to method parameters.
+* Adding typehint for returntype.
+* Adding unit tests.
+
+
+
 v2.1.3 (2018-12-07)
 ---------------------------------
 

@@ -162,10 +162,9 @@ class Database
      *
      * @return mixed with resultset
      */
-    public function executeFetchAll(string $query, array $params = [])
+    public function executeFetchAll(string $query, array $params = []) : array
     {
-        $this->execute($query, $params);
-        return $this->stmt->fetchAll();
+        return $this->execute($query, $params)->fetchAll();
     }
 
 
@@ -181,8 +180,7 @@ class Database
      */
     public function executeFetch(string $query, array $params = [])
     {
-        $this->execute($query, $params);
-        return $this->stmt->fetch();
+        return $this->execute($query, $params)->fetch();
     }
 
 
@@ -195,16 +193,14 @@ class Database
      * @param array  $params the params array
      * @param string $class  the class to create an object of and insert into
      *
-     * @return object with resultset
+     * @return null|object with resultset, null when no resultset
      */
     public function executeFetchClass(
         string $query,
         array $params,
         string $class
-    ) : object {
-        $this->execute($query, $params);
-        $this->stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
-        return $this->stmt->fetch();
+    ) :? object {
+        return $this->execute($query, $params)->fetchClass($class);
     }
 
 
@@ -215,22 +211,16 @@ class Database
      *
      * @param string $query  the SQL statement
      * @param array  $params the params array
-     * @param string $object the existing object to insert into
+     * @param object $object the existing object to insert into
      *
-     * @return object with resultset
+     * @return null|object with resultset or null when no match
      */
     public function executeFetchInto(
         string $query,
         array $params,
-        string $object = null
-    ) : object {
-        if (is_null($object)) {
-            $object = $params;
-            $params = [];
-        }
-        $this->execute($query, $params);
-        $this->stmt->setFetchMode(\PDO::FETCH_INTO, $object);
-        return $this->stmt->fetch();
+        object $object
+    ) :? object {
+        return $this->execute($query, $params)->fetchInto($object);
     }
 
 
@@ -254,7 +244,8 @@ class Database
      */
     public function fetch()
     {
-        return $this->stmt->fetch();
+        $res = $this->stmt->fetch();
+        return $res === false ? null : $res;
     }
 
 
@@ -264,12 +255,12 @@ class Database
      *
      * @param string $classname which type of object to instantiate.
      *
-     * @return object containing resultset as properties.
+     * @return null|object with details, null when no resultset
      */
-    public function fetchClass(string $classname) : object
+    public function fetchClass(string $classname) :? object
     {
         $this->stmt->setFetchMode(\PDO::FETCH_CLASS, $classname);
-        return $this->stmt->fetch();
+        return $this->fetch();
     }
 
 
@@ -295,12 +286,12 @@ class Database
      *
      * @param object $object to insert values into.
      *
-     * @return array with resultset.
+     * @return null|object with resultset or null when no match
      */
-    public function fetchInto(object $object) : object
+    public function fetchInto(object $object) :? object
     {
         $this->stmt->setFetchMode(\PDO::FETCH_INTO, $object);
-        return $this->stmt->fetch();
+        return $this->fetch();
     }
 
 
