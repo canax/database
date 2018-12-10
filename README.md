@@ -86,21 +86,6 @@ The following classes exists.
 | `Anax\Database\Database`           | Wrapper class for PHP PDO with enhanced error handling and extra utilities. |
 | `Anax\Database\DatabaseDebug`      | An alternative class that can be used for debugging database related issues. |
 
-<!--
-The following parts are related to the feature of a SQL query builder.
-
-| Class, interface, trait            | Description |
-|------------------------------------|-------------|
-| `Anax\Database\QueryBuilderTrait`  | A trait implementing SQL query builder, to be used together with `Anax\Database\Database`. |
-| `Anax\Database\DatabaseQueryBuilder` | An alternate configurable database class using the SQL query builder trait. |
-
-The following parts are related to the feature of Active Record.
-
-| Class, interface, trait            | Description |
-|------------------------------------|-------------|
-| `Anax\Database\ActiveRecordModel`  | An Active Record implementation using the SQL query builder. |
--->
-
 
 
 Exceptions
@@ -111,11 +96,6 @@ All exceptions are in the namespace `Anax\Database\Exception\`. The following ex
 | Exception               | Description |
 |-------------------------|-------------|
 | `Exception`             | General module specific exception, for example when connection fail. |
-
-<!--
-| `BuildException`        | Failing to build an SQL expression, related to the query builder. |
-| `ActiveRecordException` | Related to the active record implementation. |
--->
 
 
 

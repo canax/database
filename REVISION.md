@@ -7,6 +7,7 @@ v2.2.x (2018-12-10)
 ---------------------------------
 
 * README how to copy the default configuration to an Anax installation.
+* Removed the not used dir data/.
 
 
 
