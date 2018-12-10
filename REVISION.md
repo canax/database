@@ -3,7 +3,7 @@ Revision history
 
 
 
-v2.2.x (2018-12-10)
+v2.2.1 (2018-12-10)
 ---------------------------------
 
 * README how to copy the default configuration to an Anax installation.
