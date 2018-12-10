@@ -55,6 +55,13 @@ You can install the module from [`anax/database` on Packagist](https://packagist
 composer require anax/database
 ```
 
+You can then copy the default configuration files as a start.
+
+```text
+# In the root of your Anax installation
+rsync -av vendor/anax/database/config .
+```
+
 
 
 Development
