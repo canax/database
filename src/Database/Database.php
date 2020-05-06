@@ -357,7 +357,7 @@ class Database
             . " params):<br><pre>$query</pre><br>PARAMS ("
             . count($params)
             . "):<br><pre>"
-            . implode($params, "\n")
+            . implode("\n", $params)
             . "</pre>"
         );
     }
