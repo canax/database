@@ -17,10 +17,11 @@ class DatabaseSqliteTest extends TestCase
     /**
      * Setup before each test case.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->db = new Database([
             "dsn" => "sqlite::memory:",
+            "debug_connect" => true,
         ]);
     }
 
@@ -64,7 +65,7 @@ class DatabaseSqliteTest extends TestCase
         $sql = "SELECT 1 AS 'one';";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetch();
         $this->assertInstanceOf(\stdClass::class, $res);
         $this->assertEquals(1, $res->one);
@@ -87,7 +88,7 @@ class DatabaseSqliteTest extends TestCase
         $output = ob_get_contents();
         ob_end_clean();
 
-        $this->assertContains($sql, $output);
+        $this->assertStringContainsString($sql, $output);
     }
 
 

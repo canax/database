@@ -19,7 +19,7 @@ class DatabaseSqliteFetchWithTableTest extends TestCase
     /**
      * Setup before each test case, a table with some rows.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->db = new Database([
             "dsn" => "sqlite::memory:",
@@ -85,7 +85,7 @@ EOD;
         $sql = "SELECT age FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetch();
         $this->assertInstanceOf(\stdClass::class, $res);
         $this->assertEquals(3, $res->age);
@@ -114,7 +114,7 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetch();
         $this->assertInstanceOf(\stdClass::class, $res);
         $this->assertEquals(1, $res->id);
@@ -148,7 +148,7 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 99;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetch();
         $this->assertNull($res);
     }
@@ -175,9 +175,9 @@ EOD;
         $sql = "SELECT * FROM user;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchAll();
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(3, count($res));
 
         // Row 1
@@ -205,7 +205,7 @@ EOD;
     {
         $sql = "SELECT * FROM user;";
         $res = $this->db->executeFetchAll($sql);
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(3, count($res));
 
         // Row 1
@@ -234,9 +234,9 @@ EOD;
         $sql = "SELECT * FROM user WHERE id > 99;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchAll();
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(0, count($res));
     }
 
@@ -249,7 +249,7 @@ EOD;
     {
         $sql = "SELECT * FROM user WHERE id > 99;";
         $res = $this->db->executeFetchAll($sql);
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(0, count($res));
     }
 
@@ -263,7 +263,7 @@ EOD;
         $sql = "SELECT age FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchClass("\Anax\Database\SomeClass");
         $this->assertInstanceOf(SomeClass::class, $res);
         $this->assertEquals(3, $res->age);
@@ -279,7 +279,7 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchClass("\Anax\Database\SomeClass");
         $this->assertInstanceOf(SomeClass::class, $res);
         $this->assertEquals(1, $res->id);
@@ -312,7 +312,7 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 99;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchClass("\Anax\Database\SomeClass");
         $this->assertNull($res);
     }
@@ -339,9 +339,9 @@ EOD;
         $sql = "SELECT * FROM user;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchAllClass("\Anax\Database\SomeClass");
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(3, count($res));
 
         // Row 1
@@ -373,9 +373,9 @@ EOD;
         $sql = "SELECT * FROM user WHERE id > 99;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $res = $this->db->fetchAllClass("\Anax\Database\SomeClass");
-        $this->assertInternalType("array", $res);
+        $this->assertIsArray($res);
         $this->assertEquals(0, count($res));
     }
 
@@ -389,7 +389,7 @@ EOD;
         $sql = "SELECT age FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $obj = new SomeClass();
         $res = $this->db->fetchInto($obj);
         $this->assertInstanceOf(SomeClass::class, $res);
@@ -407,7 +407,7 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 1;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $obj = new SomeClass();
         $res = $this->db->fetchInto($obj);
         $this->assertInstanceOf(SomeClass::class, $res);
@@ -416,9 +416,9 @@ EOD;
         $this->assertEquals(3, $res->age);
         $this->assertEquals("three", $res->name);
     }
-    
-    
-    
+
+
+
     /**
      * Execute a query and fetch a single row using executeFetchInto.
      */
@@ -433,9 +433,9 @@ EOD;
         $this->assertEquals(3, $res->age);
         $this->assertEquals("three", $res->name);
     }
-    
-    
-    
+
+
+
     /**
      * Execute a query without a match, and fetch a single row using fetchInto.
      */
@@ -444,15 +444,15 @@ EOD;
         $sql = "SELECT * FROM user WHERE id = 99;";
         $res = $this->db->execute($sql);
         $this->assertInstanceOf(Database::class, $res);
-        
+
         $obj = new SomeClass();
         $res = $this->db->fetchInto($obj);
         $this->assertInstanceOf(SomeClass::class, $obj);
         $this->assertNull($res);
     }
-    
-    
-    
+
+
+
     /**
      * Execute a query without a match, and fetch a single row using fetchInto.
      */

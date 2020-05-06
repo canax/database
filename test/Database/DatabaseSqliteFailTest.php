@@ -17,7 +17,7 @@ class DatabaseSqliteFailTest extends TestCase
     /**
      * Setup before each test case.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->db = new Database([
             "dsn" => "sqlite::memory:",
@@ -28,11 +28,10 @@ class DatabaseSqliteFailTest extends TestCase
 
     /**
      * Malformed SQL expression.
-     *
-     * @expectedException Anax\Database\Exception\Exception
      */
     public function testMalformedSqlExpression()
     {
+        $this->expectException("Anax\Database\Exception\Exception");
         $this->db->connect();
         $this->db->execute("SLECT 1;");
     }
@@ -41,11 +40,10 @@ class DatabaseSqliteFailTest extends TestCase
 
     /**
      * SQL expression with table not exists.
-     *
-     * @expectedException Anax\Database\Exception\Exception
      */
     public function testSqlExpressionTableNotCreated()
     {
+        $this->expectException("Anax\Database\Exception\Exception");
         $this->db->connect();
         $this->db->execute("SELECT * FROM NoTable;");
     }
@@ -67,11 +65,10 @@ class DatabaseSqliteFailTest extends TestCase
 
     /**
      * SQL expression missmatch between ? and params, to many params.
-     *
-     * @expectedException Anax\Database\Exception\Exception
      */
     public function testSqlExpressionToManyParams()
     {
+        $this->expectException("Anax\Database\Exception\Exception");
         $this->db->connect();
         $this->db->execute("SELECT ? AS one;", [1, 1]);
     }

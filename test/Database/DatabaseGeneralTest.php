@@ -34,7 +34,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $db);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -56,7 +61,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertNull($res);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -85,7 +95,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $res);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -102,7 +117,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $db);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -119,7 +139,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $db);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -136,7 +161,12 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $db);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 
 
@@ -153,6 +183,11 @@ class DatabaseGeneralTest extends TestCase
         $this->assertInstanceOf(Database::class, $db);
 
         $res = $db->getOptions();
-        $this->assertArraySubset($options, $res);
+        foreach (array_keys($options) as $key) {
+            $this->assertArrayHasKey($key, $res);
+            $val = $res[$key];
+            $exp = $options[$key];
+            $this->assertEquals($exp, $val);
+        }
     }
 }
