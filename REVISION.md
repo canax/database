@@ -7,6 +7,7 @@ v2.3.0 (2020-05-06)
 ---------------------------------
 
 * Upgrade test suite to use phpunit v8.
+* Swap parameters to implode, PR #9.
 
 
 
