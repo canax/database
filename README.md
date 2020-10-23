@@ -91,7 +91,7 @@ The following classes exists.
 Exceptions
 ------------------
 
-All exceptions are in the namespace `Anax\Database\Exception\`. The following exceptions exists and may be thrown. 
+All exceptions are in the namespace `Anax\Database\Exception\`. The following exceptions exists and may be thrown.
 
 | Exception               | Description |
 |-------------------------|-------------|
@@ -117,7 +117,8 @@ This is a sample configuration file. It is usually stored in `config/database.ph
  *  ],
  *
  * Example for SQLite.
- *  "dsn" => "sqlite:memory::",
+ *  "dsn" => "sqlite::memory:",
+ *  "dsn" => "sqlite:$path",
  *
  */
 return [

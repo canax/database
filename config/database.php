@@ -9,7 +9,8 @@
  *  "driver_options"  => [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"],
  *
  * Example for SQLite.
- *  "dsn" => "sqlite:memory::",
+ *  "dsn" => "sqlite::memory:",
+ *  "dsn" => "sqlite:$path",
  *
  */
 return [
